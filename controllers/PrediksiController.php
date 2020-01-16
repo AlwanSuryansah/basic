@@ -12,6 +12,8 @@ use yii\filters\VerbFilter;
 use app\models\TbDatatran;
 use app\models\TbDatatranSearch;
 use kartik\mpdf\Pdf;
+use app\controllers\TbHistoryController;
+
 
 
 /**
@@ -163,6 +165,7 @@ class PrediksiController extends Controller
         $data1 = Prediksi::findOne(1); 
         $data2 = Prediksi::findOne(2);
         $pre3 = $data1->jumlah + $data2->jumlah/2;
+        TbHistoryController::saveHistory(Prediksi::findOne(3)->hari, $pre3);
         return $this->render('harike3', ['pre3' => $pre3,'data1'=> $data1->jumlah,'data2'=> $data2->jumlah] );
     }
 
@@ -173,6 +176,7 @@ class PrediksiController extends Controller
         $data2 = Prediksi::findOne(2);
         $data3 = Prediksi::findOne(3);
         $pre3 = $data1->jumlah + $data2->jumlah + $data3->jumlah / 3;
+        // call func save history for Harike4
         return $this->render('harike4', ['pre3' => $pre3,'data1'=> $data1->jumlah,'data2'=> $data2->jumlah,'data3'=> $data3->jumlah] );
     }
 
@@ -184,6 +188,7 @@ class PrediksiController extends Controller
         $data3 = Prediksi::findOne(3);
         $data4 = Prediksi::findOne(4);
         $pre3 = $data1->jumlah + $data2->jumlah + $data3->jumlah + $data4->jumlah/ 4;
+        // call func save history for Harike5
         return $this->render('harike5', ['pre3' => $pre3,'data1'=> $data1->jumlah,'data2'=> $data2->jumlah,'data3'=> $data3->jumlah,'data4'=> $data4->jumlah] );
     }
 
@@ -196,6 +201,7 @@ class PrediksiController extends Controller
         $data4 = Prediksi::findOne(4);
         $data5 = Prediksi::findOne(5);
         $pre3 = $data1->jumlah + $data2->jumlah + $data3->jumlah + $data4->jumlah + $data5->jumlah/ 5;
+        // call func save history for Harike6
         return $this->render('harike6', ['pre3' => $pre3,'data1'=> $data1->jumlah,'data2'=> $data2->jumlah,'data3'=> $data3->jumlah,
         'data4'=> $data4->jumlah, 'data5'=> $data5->jumlah]);
     }
@@ -210,6 +216,7 @@ class PrediksiController extends Controller
         $data5 = Prediksi::findOne(5);
         $data6 = Prediksi::findOne(6);
         $pre3 = $data1->jumlah + $data2->jumlah + $data3->jumlah + $data4->jumlah + $data5->jumlah + $data6->jumlah/ 6;
+        // call func save history for Harike7
         return $this->render('harike6', ['pre3' => $pre3,'data1'=> $data1->jumlah,'data2'=> $data2->jumlah,'data3'=> $data3->jumlah,
         'data4'=> $data4->jumlah, 'data5'=> $data5->jumlah, 'data6'=> $data6->jumlah]);
     }

@@ -78,6 +78,14 @@ class TbHistoryController extends Controller
         ]);
     }
 
+    public function saveHistory($data, $data2)
+    {
+        $model = new TbHistory();
+        $model->hari = $data;
+        $model->jumlah_prediksi = $data2;
+        $model->save();
+    }
+
 
     /**
      * Updates an existing TbHistory model.

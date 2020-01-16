@@ -32,7 +32,7 @@ class TbHistory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['hari', 'jumlah_prediksi', 'waktu'], 'required'],
+
             [[ 'jumlah_prediksi'], 'integer'],
             [[ 'waktu'], 'safe'],
             [['hari'], 'string', 'max' => 15],
